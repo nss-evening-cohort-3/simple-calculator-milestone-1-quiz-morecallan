@@ -10,6 +10,9 @@ namespace SimpleCalculator
     {
         static void Main(string[] args)
         {
+            Expression my_expression = new Expression();
+            my_expression.ParseStringIntoTermsAndOperation("1+2");
+            Console.ReadKey();
         }
     }
 }
