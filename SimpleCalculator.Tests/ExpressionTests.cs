@@ -39,6 +39,9 @@ namespace SimpleCalculator.Tests
         //Prove you can extract the operation embedded in the expression.
         public void operationCanBeExtractedFromExpression()
         {
+            Expression my_expression = new Expression();
+            my_expression.ParseStringIntoTermsAndOperation("1+2");
+            Assert.AreEqual("+", my_expression.Operation);
         }
     }
 }

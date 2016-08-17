@@ -31,6 +31,7 @@ namespace SimpleCalculator
                 Match match = Regex.Match(input, pattern);
                 Term1 = Convert.ToInt32(match.Groups["term1"].Value);
                 Term2 = Convert.ToInt32(match.Groups["term2"].Value);
+                Operation = match.Groups["operation"].Value;
             }
             else
             {
@@ -41,5 +42,7 @@ namespace SimpleCalculator
 
         public int Term1 { get; set; }
         public int Term2 { get; set; }
+
+        public string Operation { get; set;}
     }
 }
