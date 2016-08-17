@@ -9,13 +9,35 @@ namespace SimpleCalculator
 {
     public class Expression
     {
-        public void ParseStringIntoTermsAndOperation(string input)
+        private bool checkForValidString(string input)
         {
             string pattern = @"^(?<term1>[-]?[0-9]+)\s*(?<operation>[\+\-\/\*\%])\s*(?<term2>[-]?[0-9]+)$";
             Match match = Regex.Match(input, pattern);
-            Term1 = Convert.ToInt32(match.Groups["term1"].Value);
-            Term2 = Convert.ToInt32(match.Groups["term2"].Value);
+            if (match.Success)
+            {
+                return true;
+            } else
+            {
+                return false;
+            }
         }
+
+        public void ParseStringIntoTermsAndOperation(string input)
+        {
+            if (checkForValidString(input))
+            {
+                string pattern = @"^(?<term1>[-]?[0-9]+)\s*(?<operation>[\+\-\/\*\%])\s*(?<term2>[-]?[0-9]+)$";
+                Match match = Regex.Match(input, pattern);
+                Term1 = Convert.ToInt32(match.Groups["term1"].Value);
+                Term2 = Convert.ToInt32(match.Groups["term2"].Value);
+            }
+            else
+            {
+                throw new Exception("Invalid input string");
+            }
+            
+        }
+
         public int Term1 { get; set; }
         public int Term2 { get; set; }
     }

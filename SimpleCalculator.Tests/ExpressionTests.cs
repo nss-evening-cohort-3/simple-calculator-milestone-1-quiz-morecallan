@@ -26,6 +26,15 @@ namespace SimpleCalculator.Tests
         }
 
         [TestMethod]
+        [ExpectedException(typeof(System.Exception))]
+        //Prove you can extract the terms of the expression.
+        public void invalidTermsThrowException()
+        {
+            Expression my_expression = new Expression();
+            my_expression.ParseStringIntoTermsAndOperation("g+3");
+        }
+
+        [TestMethod]
         //Prove you can extract the operation embedded in the expression.
         public void operationCanBeExtractedFromExpression()
         {
