@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using SimpleCalculator.Exceptions;
 
 namespace SimpleCalculator
 {
@@ -33,7 +34,7 @@ namespace SimpleCalculator
             }
             else
             {
-                throw new Exception("Invalid input string");
+                throw new InputStringException("Input string is not valid.");
             }
             
         }

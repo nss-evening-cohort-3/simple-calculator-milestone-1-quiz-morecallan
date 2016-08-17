@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SimpleCalculator.Exceptions;
 
 namespace SimpleCalculator.Tests
 {
@@ -26,7 +27,7 @@ namespace SimpleCalculator.Tests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(System.Exception))]
+        [ExpectedException(typeof(InputStringException))]
         //Prove you can extract the terms of the expression.
         public void invalidTermsThrowException()
         {
