@@ -8,5 +8,13 @@ namespace SimpleCalculator
 {
     public class Stack
     {
+        public void setStack(string validInput)
+        {
+            Evaluate stack_evaluate = new Evaluate(validInput);
+            LastCommand = validInput;
+            LastAnswer = stack_evaluate.Answer;
+        }
+        public string LastCommand { get; set; }
+        public int LastAnswer { get; set; }
     }
 }
