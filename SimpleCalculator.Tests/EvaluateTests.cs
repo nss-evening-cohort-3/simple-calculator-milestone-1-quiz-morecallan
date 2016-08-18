@@ -56,5 +56,26 @@ namespace SimpleCalculator.Tests
             Evaluate my_evaluate = new Evaluate("20%2");
             Assert.AreEqual(0, my_evaluate.Answer);
         }
+
+        [TestMethod]
+        public void EvaluateCanHandleNegativeInputs()
+        {
+            Evaluate my_evaluate = new Evaluate("-30+15");
+            Assert.AreEqual(-15, my_evaluate.Answer);
+        }
+
+        [TestMethod]
+        public void EvaluateCanHandleNegativeOnBothSides()
+        {
+            Evaluate my_evaluate = new Evaluate("-30+-15");
+            Assert.AreEqual(-45, my_evaluate.Answer);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(System.DivideByZeroException))]
+        public void EvaluateCantTouchThis()
+        {
+            Evaluate my_evaluate = new Evaluate("30/0");
+        }
     }
 }
