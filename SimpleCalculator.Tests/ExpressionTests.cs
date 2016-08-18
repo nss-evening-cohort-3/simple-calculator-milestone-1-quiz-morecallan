@@ -53,7 +53,6 @@ namespace SimpleCalculator.Tests
         {
             Expression my_expression = new Expression();
             my_expression.ParseStringIntoTermsAndOperation("g+3");
-            Assert.Fail();
         }
 
         [TestMethod]
@@ -77,7 +76,6 @@ namespace SimpleCalculator.Tests
         {
             Expression my_expression = new Expression();
             my_expression.ParseStringIntoTermsAndOperation("1!3");
-            Assert.Fail();
         }
 
         [TestMethod]
@@ -87,7 +85,6 @@ namespace SimpleCalculator.Tests
         {
             Expression my_expression = new Expression();
             my_expression.ParseStringIntoTermsAndOperation("5");
-            Assert.Fail();
         }
 
         [TestMethod]
@@ -97,7 +94,6 @@ namespace SimpleCalculator.Tests
         {
             Expression my_expression = new Expression();
             my_expression.ParseStringIntoTermsAndOperation("5+");
-            Assert.Fail();
         }
     }
 }

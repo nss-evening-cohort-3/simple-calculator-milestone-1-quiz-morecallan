@@ -20,7 +20,6 @@ namespace SimpleCalculator.Tests
         public void ExceptionIsThrownIfEvaluateIsConstructedWithInvalidString()
         {
             Evaluate my_evaluate = new Evaluate("+2");
-            Assert.Fail();
         }
 
         [TestMethod]
@@ -30,5 +29,32 @@ namespace SimpleCalculator.Tests
             Assert.AreEqual(3, my_evaluate.Answer);
         }
 
+        [TestMethod]
+        public void EvaluateCanProduceExpectedResultForSubtraction()
+        {
+            Evaluate my_evaluate = new Evaluate("74 - 5");
+            Assert.AreEqual(69, my_evaluate.Answer);
+        }
+
+        [TestMethod]
+        public void EvaluateCanProduceExpectedResultForDivision()
+        {
+            Evaluate my_evaluate = new Evaluate("30/2");
+            Assert.AreEqual(15, my_evaluate.Answer);
+        }
+
+        [TestMethod]
+        public void EvaluateCanProduceExpectedResultForMultiplication()
+        {
+            Evaluate my_evaluate = new Evaluate("4*90");
+            Assert.AreEqual(360, my_evaluate.Answer);
+        }
+
+        [TestMethod]
+        public void EvaluateCanProduceExpectedResultForModulo()
+        {
+            Evaluate my_evaluate = new Evaluate("20%2");
+            Assert.AreEqual(0, my_evaluate.Answer);
+        }
     }
 }
