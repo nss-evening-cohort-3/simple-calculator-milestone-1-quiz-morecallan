@@ -21,8 +21,8 @@ namespace SimpleCalculator
             {
                 case "+": return term1 + term2;
                 case "-": return term1 - term2;
-                case "/": return term1 / term2;
                 case "*": return term1 * term2;
+                case "/": return term1 / term2;
                 case "%": return term1 % term2;
                 default: return 0;
             }
