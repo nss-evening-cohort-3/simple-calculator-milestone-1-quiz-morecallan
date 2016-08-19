@@ -20,7 +20,7 @@ namespace SimpleCalculator
             {
                 case "last": return (current_stack.LastCommand != "") ? current_stack.LastCommand : "You've got no last command, dummy!";
                 case "lastq": return (current_stack.LastAnswer != 0) ? current_stack.LastAnswer.ToString() : "You've got not last answer, dummy!";
-                case "shut up": return "okay, bye.";
+                case "shut up": Environment.Exit(1);  return "okay, bye";
                 default: Evaluate my_evaluate = new Evaluate(input); current_stack.setStack(input); return my_evaluate.Answer.ToString();
             }
         }
