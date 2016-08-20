@@ -16,11 +16,11 @@ namespace SimpleCalculator.Tests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(InputStringException))]
-        public void ExceptionIsThrownIfEvaluateIsConstructedWithInvalidString()
+        public void ErrorIsDisplayedIfEvaluateIsConstructedWithInvalidString()
         {
             Evaluate my_evaluate = new Evaluate();
             my_evaluate.Evaluation("+2", new Variables());
+            Assert.AreEqual("Oopsie Daisy. Please enter a valid command.", my_evaluate.Answer);
         }
 
         [TestMethod]
@@ -80,11 +80,11 @@ namespace SimpleCalculator.Tests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(System.DivideByZeroException))]
         public void EvaluateCantTouchThis()
         {
             Evaluate my_evaluate = new Evaluate();
             my_evaluate.Evaluation("30/0", new Variables());
+            Assert.AreEqual("Oopsie Daisy. Please enter a valid command.", my_evaluate.Answer);
 
         }
     }

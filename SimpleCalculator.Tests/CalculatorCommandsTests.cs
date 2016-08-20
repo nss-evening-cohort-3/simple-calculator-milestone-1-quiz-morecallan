@@ -9,9 +9,9 @@ namespace SimpleCalculator.Tests
     public class CalculatorCommandsTests
     {
         [TestMethod]
-        public void CalculatorCommandsCanBeInstantiatedWithInputString()
+        public void CalculatorCommandsCanBeInstantiated()
         {
-            CalculatorCommands command = new CalculatorCommands("last", new Stack(), new Variables());
+            CalculatorCommands command = new CalculatorCommands();
             Assert.IsNotNull(command);
         }
 
@@ -23,10 +23,10 @@ namespace SimpleCalculator.Tests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(InputStringException))]
-        public void CalculatorCommandsWillThrowAnExceptionForCompletelyInvalidInputs()
+        public void CalculatorCommandsWillNotEvaluateCompletelyInvalidInputs()
         {
             CalculatorCommands command = new CalculatorCommands("poop", new Stack(), new Variables());
+            Assert.AreEqual("Oopsie Daisy. Please enter a valid command.", command.Output);
         }
     }
 }
