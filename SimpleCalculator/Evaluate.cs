@@ -25,8 +25,16 @@ namespace SimpleCalculator
             else
             {
                 string convertedForVariables = currentVariables.ConvertInputString(input);
-                expressionToEvaluate.ParseStringIntoTermsAndOperation(convertedForVariables);
-                Answer = OperationParser(expressionToEvaluate.Term1, expressionToEvaluate.Term2, expressionToEvaluate.Operation).ToString();
+                try
+                {
+                    expressionToEvaluate.ParseStringIntoTermsAndOperation(convertedForVariables);
+                    Answer = OperationParser(expressionToEvaluate.Term1, expressionToEvaluate.Term2, expressionToEvaluate.Operation).ToString();
+                }
+                catch
+                {
+                    CalculatorCommands commandOutput = new CalculatorCommands();
+                    Answer = "Oopsie Daisy. Please enter a valid command.";
+                }
             }
         }
 
