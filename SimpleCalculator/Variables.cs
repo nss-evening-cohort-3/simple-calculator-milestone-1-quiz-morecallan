@@ -14,7 +14,7 @@ namespace SimpleCalculator
     {
         public string Var { get; set; }
         public int Val { get; set; }
-        string pattern = @"^(?<variable>[a-z]{1})\s*\=\s*(?<value>\-?[0-9]+)$";
+        string pattern = @"^(?<variable>[a-zA-Z]{1})\s*\=\s*(?<value>\-?[0-9]+)$";
 
         public bool VariablePatternMath(string input)
         {
@@ -36,7 +36,7 @@ namespace SimpleCalculator
             if (VariablePatternMath(input))
             {
                 Match match = Regex.Match(input, pattern);
-                Var = match.Groups["variable"].Value;
+                Var = match.Groups["variable"].Value.ToLower();
                 Val = Convert.ToInt32(match.Groups["value"].Value);
                 SetVariable(Var, Val);
             }
@@ -84,6 +84,8 @@ namespace SimpleCalculator
 
         private string ConvertSingleTermIfContainedInDictionary(string term)
         {
+            term = term.ToLower();
+
             if (CheckDictionary(term))
             {
                 return VariablesList[term].ToString();

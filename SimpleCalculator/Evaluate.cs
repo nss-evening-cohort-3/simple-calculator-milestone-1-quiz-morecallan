@@ -14,7 +14,8 @@ namespace SimpleCalculator
             if (currentVariables.VariablePatternMath(input))
             {
                 currentVariables.VariableCreation(input);
-                Answer = "Variable Set";
+                
+                Answer = String.Format("Saved '{0}' as '{1}'", currentVariables.Var, currentVariables.Val);
             }
             else
             {
