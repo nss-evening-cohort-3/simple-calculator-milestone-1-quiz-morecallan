@@ -24,7 +24,6 @@ namespace SimpleCalculator
                 Console.WriteLine("     = " + newCommand.Output);
                 cycleCount++;
             }
-            Console.ReadKey();
         }
     }
 }
