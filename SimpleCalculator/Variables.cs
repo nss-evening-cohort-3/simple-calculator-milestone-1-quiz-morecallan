@@ -52,7 +52,7 @@ namespace SimpleCalculator
             VariablesList.Add(var, val);
         }
 
-        public bool CheckForVariableExpression(string input)
+        private bool CheckForVariableExpression(string input)
         {
             string pattern = @"^(?<term1>[a-zA-Z]?|[-]?[0-9]+)\s*(?<operation>[\+\-\/\*\%])\s*(?<term2>[a-zA-Z]?|[-]?[0-9]+)$";
             Match match = Regex.Match(input, pattern);
