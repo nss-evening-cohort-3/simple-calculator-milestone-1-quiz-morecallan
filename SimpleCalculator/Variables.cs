@@ -47,7 +47,7 @@ namespace SimpleCalculator
 
         }
 
-        public void SetVariable(string var, int val)
+        private void SetVariable(string var, int val)
         {
             VariablesList.Add(var, val);
         }
@@ -72,9 +72,9 @@ namespace SimpleCalculator
             {
                 string pattern = @"^(?<term1>[a-zA-Z]?|[-]?[0-9]+)\s*(?<operation>[\+\-\/\*\%])\s*(?<term2>[a-zA-Z]?|[-]?[0-9]+)$";
                 Match match = Regex.Match(input, pattern);
-                string term1 = ConvertSingleTermIfContainedInDictionary(match.Groups["term1"].Value);
-                string term2 = ConvertSingleTermIfContainedInDictionary(match.Groups["term2"].Value);
-                return term1 + match.Groups["operation"].Value + term2;
+                string convertedterm1 = ConvertSingleTermIfContainedInDictionary(match.Groups["term1"].Value);
+                string convertedterm2 = ConvertSingleTermIfContainedInDictionary(match.Groups["term2"].Value);
+                return convertedterm1 + match.Groups["operation"].Value + convertedterm2;
             }
             else
             {

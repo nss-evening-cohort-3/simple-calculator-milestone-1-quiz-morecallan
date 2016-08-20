@@ -30,5 +30,11 @@ namespace SimpleCalculator.Tests
             newVar.VariableCreation("g=4");
             Assert.AreEqual(4, newVar.VariablesList["g"]);
         }
+
+        [TestMethod]
+        public void MyTestMethod()
+        {
+
+        }
     }
 }

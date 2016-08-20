@@ -8,20 +8,20 @@ namespace SimpleCalculator
 {
     public class CalculatorCommands
     {
-        public CalculatorCommands(string input, Stack currentStack)
+        public CalculatorCommands(string input, Stack currentStack, Variables currentVariables)
         {
-            Output = OutputControl(input, currentStack);
+            Output = OutputControl(input, currentStack, currentVariables);
         }
 
-        public string OutputControl(string input, Stack current_stack)
+        public string OutputControl(string input, Stack current_stack, Variables current_variables)
         {
             
             switch (input)
             {
                 case "last": return (current_stack.LastCommand != "") ? current_stack.LastCommand : "You've got no last command, dummy!";
-                case "lastq": return (current_stack.LastAnswer != 0) ? current_stack.LastAnswer.ToString() : "You've got not last answer, dummy!";
+                case "lastq": return (current_stack.LastAnswer != "") ? current_stack.LastAnswer.ToString() : "You've got not last answer, dummy!";
                 case "shut up": Environment.Exit(1);  return "okay, bye";
-                default: Evaluate my_evaluate = new Evaluate(input); current_stack.setStack(input); return my_evaluate.Answer.ToString();
+                default: Evaluate my_evaluate = new Evaluate(); my_evaluate.Evaluation(input, current_variables); current_stack.setStack(input, my_evaluate.Answer); return my_evaluate.Answer;
             }
         }
 
