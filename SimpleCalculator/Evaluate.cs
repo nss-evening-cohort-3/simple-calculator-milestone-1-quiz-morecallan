@@ -17,6 +17,11 @@ namespace SimpleCalculator
                 
                 Answer = String.Format("Saved '{0}' as '{1}'", currentVariables.Var, currentVariables.Val);
             }
+            else if (currentVariables.CheckDictionary(input.ToLower()))
+            {
+                input = input.ToLower();
+                Answer = currentVariables.VariablesList[input].ToString();
+            }
             else
             {
                 string convertedForVariables = currentVariables.ConvertInputString(input);

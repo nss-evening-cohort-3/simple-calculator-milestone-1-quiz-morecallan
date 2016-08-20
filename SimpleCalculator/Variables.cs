@@ -96,7 +96,7 @@ namespace SimpleCalculator
             }
         }
 
-        private bool CheckDictionary(string term)
+        public bool CheckDictionary(string term)
         {
             if (VariablesList.ContainsKey(term))
             {
@@ -107,5 +107,7 @@ namespace SimpleCalculator
                 return false;
             }
         }
+
+
     }
 }
