@@ -13,9 +13,15 @@ namespace SimpleCalculator
             Expression expressionToEvaluate = new Expression();
             if (currentVariables.VariablePatternMath(input))
             {
-                currentVariables.VariableCreation(input);
-                
-                Answer = String.Format("Saved '{0}' as '{1}'", currentVariables.Var, currentVariables.Val);
+                try
+                {
+                    currentVariables.VariableCreation(input);
+                    Answer = String.Format("Saved '{0}' as '{1}'", currentVariables.Var, currentVariables.Val);
+                }
+                catch
+                {
+                    Answer = String.Format("Nah, bro, you already assigned that variable a value. Remember? It equals {0}.", currentVariables.VariablesList[currentVariables.Var]);
+                }
             }
             else if (currentVariables.CheckDictionary(input.ToLower()))
             {
