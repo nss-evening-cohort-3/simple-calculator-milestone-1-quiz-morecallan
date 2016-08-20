@@ -17,7 +17,7 @@ namespace SimpleCalculator.Tests
         public void StackRetainsLastCommand()
         {
             Stack stack = new Stack();
-            stack.setStack("1+2");
+            stack.setStack("1+2", "3");
             Assert.AreEqual("1+2", stack.LastCommand);
         }
 
@@ -25,8 +25,8 @@ namespace SimpleCalculator.Tests
         public void StackReturnsLastAnswer()
         {
             Stack stack = new Stack();
-            stack.setStack("1+2");
-            Assert.AreEqual(3, stack.LastAnswer);
+            stack.setStack("1+2", "3");
+            Assert.AreEqual("3", stack.LastAnswer);
         }
     }
 }

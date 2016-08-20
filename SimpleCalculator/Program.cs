@@ -13,14 +13,15 @@ namespace SimpleCalculator
             bool running = true;
             int cycleCount = 0;
             Stack CurrentStack = new Stack();
+            Variables VariableList = new Variables();
 
             while (running)
             {
                 Console.Write("[{0}]>", cycleCount);
                 string userInput = Console.ReadLine();
 
-                CalculatorCommands newCommand = new CalculatorCommands(userInput, CurrentStack);
-                Console.WriteLine(newCommand.Output);
+                CalculatorCommands newCommand = new CalculatorCommands(userInput, CurrentStack, VariableList);
+                Console.WriteLine("     = " + newCommand.Output);
                 cycleCount++;
             }
             Console.ReadKey();

@@ -11,7 +11,7 @@ namespace SimpleCalculator.Tests
         [TestMethod]
         public void EvaluateCanBeInstantiatedWithInputString()
         {
-            Evaluate my_evaluate = new Evaluate("1+2");
+            Evaluate my_evaluate = new Evaluate();
             Assert.IsNotNull(my_evaluate);
         }
 
@@ -19,63 +19,73 @@ namespace SimpleCalculator.Tests
         [ExpectedException(typeof(InputStringException))]
         public void ExceptionIsThrownIfEvaluateIsConstructedWithInvalidString()
         {
-            Evaluate my_evaluate = new Evaluate("+2");
+            Evaluate my_evaluate = new Evaluate();
+            my_evaluate.Evaluation("+2", new Variables());
         }
 
         [TestMethod]
         public void EvaluateCanProduceExpectedResultForAddition()
         {
-            Evaluate my_evaluate = new Evaluate("1+2");
-            Assert.AreEqual(3, my_evaluate.Answer);
+            Evaluate my_evaluate = new Evaluate();
+            my_evaluate.Evaluation("1+2", new Variables());
+            Assert.AreEqual("3", my_evaluate.Answer);
         }
 
         [TestMethod]
         public void EvaluateCanProduceExpectedResultForSubtraction()
         {
-            Evaluate my_evaluate = new Evaluate("74 - 5");
-            Assert.AreEqual(69, my_evaluate.Answer);
+            Evaluate my_evaluate = new Evaluate();
+            my_evaluate.Evaluation("74 - 5", new Variables());
+            Assert.AreEqual("69", my_evaluate.Answer);
         }
 
         [TestMethod]
         public void EvaluateCanProduceExpectedResultForDivision()
         {
-            Evaluate my_evaluate = new Evaluate("30/2");
-            Assert.AreEqual(15, my_evaluate.Answer);
+            Evaluate my_evaluate = new Evaluate();
+            my_evaluate.Evaluation("30/2", new Variables());
+            Assert.AreEqual("15", my_evaluate.Answer);
         }
 
         [TestMethod]
         public void EvaluateCanProduceExpectedResultForMultiplication()
         {
-            Evaluate my_evaluate = new Evaluate("4*90");
-            Assert.AreEqual(360, my_evaluate.Answer);
+            Evaluate my_evaluate = new Evaluate();
+            my_evaluate.Evaluation("4*90", new Variables());
+            Assert.AreEqual("360", my_evaluate.Answer);
         }
 
         [TestMethod]
         public void EvaluateCanProduceExpectedResultForModulo()
         {
-            Evaluate my_evaluate = new Evaluate("20%2");
-            Assert.AreEqual(0, my_evaluate.Answer);
+            Evaluate my_evaluate = new Evaluate();
+            my_evaluate.Evaluation("20%2", new Variables());
+            Assert.AreEqual("0", my_evaluate.Answer);
         }
 
         [TestMethod]
         public void EvaluateCanHandleNegativeInputs()
         {
-            Evaluate my_evaluate = new Evaluate("-30+15");
-            Assert.AreEqual(-15, my_evaluate.Answer);
+            Evaluate my_evaluate = new Evaluate();
+            my_evaluate.Evaluation("-30+15", new Variables());
+            Assert.AreEqual("-15", my_evaluate.Answer);
         }
 
         [TestMethod]
         public void EvaluateCanHandleNegativeOnBothSides()
         {
-            Evaluate my_evaluate = new Evaluate("-30+-15");
-            Assert.AreEqual(-45, my_evaluate.Answer);
+            Evaluate my_evaluate = new Evaluate();
+            my_evaluate.Evaluation("-30+-15", new Variables());
+            Assert.AreEqual("-45", my_evaluate.Answer);
         }
 
         [TestMethod]
         [ExpectedException(typeof(System.DivideByZeroException))]
         public void EvaluateCantTouchThis()
         {
-            Evaluate my_evaluate = new Evaluate("30/0");
+            Evaluate my_evaluate = new Evaluate();
+            my_evaluate.Evaluation("30/0", new Variables());
+
         }
     }
 }

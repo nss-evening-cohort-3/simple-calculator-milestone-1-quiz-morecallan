@@ -8,11 +8,26 @@ namespace SimpleCalculator
 {
     public class Evaluate
     {
-        public Evaluate(string input)
+        public void Evaluation(string input, Variables currentVariables)
         {
             Expression expressionToEvaluate = new Expression();
-            expressionToEvaluate.ParseStringIntoTermsAndOperation(input);
-            Answer = OperationParser(expressionToEvaluate.Term1, expressionToEvaluate.Term2, expressionToEvaluate.Operation);
+            if (currentVariables.VariablePatternMath(input))
+            {
+                currentVariables.VariableCreation(input);
+                
+                Answer = String.Format("Saved '{0}' as '{1}'", currentVariables.Var, currentVariables.Val);
+            }
+            else if (currentVariables.CheckDictionary(input.ToLower()))
+            {
+                input = input.ToLower();
+                Answer = currentVariables.VariablesList[input].ToString();
+            }
+            else
+            {
+                string convertedForVariables = currentVariables.ConvertInputString(input);
+                expressionToEvaluate.ParseStringIntoTermsAndOperation(convertedForVariables);
+                Answer = OperationParser(expressionToEvaluate.Term1, expressionToEvaluate.Term2, expressionToEvaluate.Operation).ToString();
+            }
         }
 
         public int OperationParser(int term1, int term2, string operation)
@@ -28,6 +43,6 @@ namespace SimpleCalculator
             }
         }
 
-        public int Answer { get; set; }
+        public string Answer { get; set; }
     }
 }
