@@ -9,7 +9,7 @@ namespace SimpleCalculator.Tests
     {
         [TestMethod]
         //Prove you can extract the terms of the expression.
-        public void expressionContainsTwoTermProperties()
+        public void ExpressionContainsTwoTermProperties()
         {
             Expression my_expression = new Expression();
             Assert.IsNotNull(my_expression.Term1);
@@ -18,7 +18,7 @@ namespace SimpleCalculator.Tests
 
         [TestMethod]
         //Prove you can extract the terms of the expression.
-        public void twoTermsCanBeExtractedFromExpression()
+        public void TwoTermsCanBeExtractedFromExpression()
         {
             Expression my_expression = new Expression();
             my_expression.ParseStringIntoTermsAndOperation("1+3");
@@ -28,7 +28,7 @@ namespace SimpleCalculator.Tests
 
         [TestMethod]
         //Prove you can extract the terms of the expression.
-        public void termsCanBeDoubleDigit()
+        public void TermsCanBeDoubleDigit()
         {
             Expression my_expression = new Expression();
             my_expression.ParseStringIntoTermsAndOperation("41+3900");
@@ -38,7 +38,7 @@ namespace SimpleCalculator.Tests
 
         [TestMethod]
         //Prove you can extract the terms of the expression.
-        public void termsCanBeNegative()
+        public void TermsCanBeNegative()
         {
             Expression my_expression = new Expression();
             my_expression.ParseStringIntoTermsAndOperation("-41+-6");
@@ -49,7 +49,7 @@ namespace SimpleCalculator.Tests
         [TestMethod]
         [ExpectedException(typeof(InputStringException))]
         //Prove you can extract the terms of the expression.
-        public void invalidTermsThrowException()
+        public void InvalidTermsThrowException()
         {
             Expression my_expression = new Expression();
             my_expression.ParseStringIntoTermsAndOperation("g+3");
@@ -57,7 +57,7 @@ namespace SimpleCalculator.Tests
 
         [TestMethod]
         //Prove you can extract the operation embedded in the expression.
-        public void operationCanBeExtractedFromExpression()
+        public void OperationCanBeExtractedFromExpression()
         {
             Expression my_add_expression = new Expression();
             my_add_expression.ParseStringIntoTermsAndOperation("1+2");
@@ -72,7 +72,7 @@ namespace SimpleCalculator.Tests
         [TestMethod]
         [ExpectedException(typeof(InputStringException))]
         //Prove you can extract the operation embedded in the expression.
-        public void invalidOperationThrowsException()
+        public void InvalidOperationThrowsException()
         {
             Expression my_expression = new Expression();
             my_expression.ParseStringIntoTermsAndOperation("1!3");
@@ -81,7 +81,7 @@ namespace SimpleCalculator.Tests
         [TestMethod]
         [ExpectedException(typeof(InputStringException))]
         //Prove you can extract the operation embedded in the expression.
-        public void invalidCommandThrowsException()
+        public void InvalidCommandThrowsException()
         {
             Expression my_expression = new Expression();
             my_expression.ParseStringIntoTermsAndOperation("5");
@@ -90,7 +90,7 @@ namespace SimpleCalculator.Tests
         [TestMethod]
         [ExpectedException(typeof(InputStringException))]
         //Prove you can extract the operation embedded in the expression.
-        public void incompleteExpressionsThrowAnException()
+        public void IncompleteExpressionsThrowAnException()
         {
             Expression my_expression = new Expression();
             my_expression.ParseStringIntoTermsAndOperation("5+");
